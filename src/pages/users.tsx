@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import { DataList } from "@/components/shared/data-list"
 import { Badge } from "@/components/ui/badge"
+import { SlidePanel } from "@/components/ui/slide-panel"
 import { fetchUsersData, type User } from "@/lib/api"
 
 export function UsersPage() {
   const [data, setData] = useState<User[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
 
   useEffect(() => {
     async function loadUsersData() {
@@ -62,7 +64,18 @@ export function UsersPage() {
         title="All Users"
         data={data}
         columns={[
-          { key: "name", header: "Name" },
+          {
+            key: "name",
+            header: "Name",
+            render: (user) => (
+              <button
+                onClick={() => setSelectedUser(user)}
+                className="text-blue-600 hover:text-blue-800 hover:underline font-medium cursor-pointer text-left"
+              >
+                {user.name}
+              </button>
+            ),
+          },
           { key: "email", header: "Email" },
           {
             key: "role",
@@ -85,6 +98,15 @@ export function UsersPage() {
           { key: "joinDate", header: "Join Date" },
         ]}
       />
+
+      {/* User Detail Slide Panel */}
+      <SlidePanel
+        isOpen={selectedUser !== null}
+        onClose={() => setSelectedUser(null)}
+        title={"User Details"}
+      >
+        {/* Blank for now */}
+      </SlidePanel>
     </div>
   )
 }
