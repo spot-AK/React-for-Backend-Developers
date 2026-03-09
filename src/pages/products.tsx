@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { DataList } from "@/components/shared/data-list"
 import { BarChart } from "@/components/shared/bar-chart"
 import { Badge } from "@/components/ui/badge"
@@ -72,7 +73,18 @@ export function ProductsPage() {
         title="Product Inventory"
         data={data.items}
         columns={[
-          { key: "name", header: "Product" },
+          {
+            key: "name",
+            header: "Product",
+            render: (product) => (
+              <Link
+                to={`/products/${product.id}`}
+                className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+              >
+                {product.name}
+              </Link>
+            ),
+          },
           {
             key: "category",
             header: "Category",
