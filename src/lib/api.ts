@@ -140,6 +140,23 @@ export async function fetchProductsData(): Promise<ProductsData> {
     return response.json()
 }
 
+export async function fetchProductById(id: string): Promise<Product> {
+    const response = await fetch(`${API_BASE_URL}/products`)
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch product: ${response.statusText}`)
+    }
+
+    const data: ProductsData = await response.json()
+    const product = data.items.find((p) => p.id === Number(id))
+
+    if (!product) {
+        throw new Error(`Product with ID ${id} not found`)
+    }
+
+    return product
+}
+
 export async function fetchSettingsData(): Promise<Setting[]> {
     const response = await fetch(`${API_BASE_URL}/settings`)
 
