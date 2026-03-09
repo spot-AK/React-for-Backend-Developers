@@ -3,6 +3,7 @@ import { DataList } from "@/components/shared/data-list"
 import { Badge } from "@/components/ui/badge"
 import { SlidePanel } from "@/components/ui/slide-panel"
 import { fetchUsersData, type User } from "@/lib/api"
+import { UserProfileCard } from "@/components/shared/user-profile-card"
 
 export function UsersPage() {
   const [data, setData] = useState<User[] | null>(null)
@@ -106,6 +107,7 @@ export function UsersPage() {
         title={"User Details"}
       >
         {/* Blank for now */}
+        <UserProfileCard name={selectedUser?.name ?? ""} email={selectedUser?.email ?? ""} role={selectedUser?.role ?? ""} joinDate={selectedUser?.joinDate ?? ""} />
       </SlidePanel>
     </div>
   )
