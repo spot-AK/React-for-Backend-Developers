@@ -599,7 +599,7 @@ const menuItems = [
 
 ---
 
-### ✅ Task 3: Add a Product Details Page with Dynamic Route
+### ✅ Task 2: Add a Product Details Page with Dynamic Route
 
 **Goal:** Practice adding a dynamic route with URL parameters, creating a page component, and navigating to it.
 
@@ -915,9 +915,9 @@ src/
 
 ---
 
-### ✅ Task 4: Fetch and Display Product Details
+### ✅ Task 3: Fetch and Display Product Details
 
-**Goal:** Practice the full flow — API function → useEffect → state → render — by building out the Product Details page from Task 3.
+**Goal:** Practice the full flow — API function → useEffect → state → render — by building out the Product Details page from Task 2.
 
 **What to build:**
 
@@ -925,7 +925,7 @@ Right now the Product Details page (`/products/:id`) only shows "Viewing product
 
 **Key Concept: Passing URL Params to an API Call**
 
-In Task 3, you used `useParams()` to read the product ID from the URL. Now you'll use that ID to fetch data:
+In Task 2, you used `useParams()` to read the product ID from the URL. Now you'll use that ID to fetch data:
 
 ```
 URL: /products/3
@@ -1426,7 +1426,7 @@ function SettingsPage() {
 
 ---
 
-### ✅ Task 5: Create a `useFetch` Hook and Refactor a Page
+### ✅ Task 4: Create a `useFetch` Hook and Refactor a Page
 
 **Goal:** Practice creating a custom hook and using it to eliminate duplicated code.
 
@@ -1486,24 +1486,6 @@ export function UsersPage() {
 4. **Verify** that all pages still work correctly after refactoring.
 
 **Bonus:** Create a `useToggle` hook in `src/hooks/use-toggle.ts` and use it to add a "Show/Hide sidebar" toggle to the Layout component.
-
----
-
-## 📐 Suggested Learning Schedule
-
-| Week | Topics | Task |
-|---|---|---|
-| Week 1 | 1. What is React & Why React | — |
-| | 2. JSX & Components | — |
-| | 3. Props & Interfaces | — |
-| | 4. State with `useState` | — |
-| | 5. Component Composition | ✅ Task 1: UserProfileCard |
-| Week 2 | 6. Rendering Lists | — |
-| | 7. Conditional Rendering | ✅ Task 2: NotificationBanner |
-| Week 3 | 8. React Router & Navigation | ✅ Task 3: Product Details page + dynamic route |
-| Week 4 | 9. Side Effects with `useEffect` | — |
-| | 10. API Integration with `fetch` | ✅ Task 4: Fetch & display product details |
-| | 11. Custom Hooks | ✅ Task 5: useFetch hook + refactor |
 
 ---
 
